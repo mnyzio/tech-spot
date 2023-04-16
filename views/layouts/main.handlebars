@@ -15,11 +15,8 @@
     <header>
       <nav class="flex flex-wrap items-center justify-between py-4">
       <ul class="flex gap-x-4">
-        <li class="py-3"><a href="/">Home</a></li>      
-        {{!-- Allow signed in user to access dashboard --}}
-        {{#if logged_in}}  
-        <li class="py-3"><a href="dashboard">Dashboard</a></li>
-        {{/if}}
+        <li class="py-3"><a href="/">Home</a></li>              
+        <li class="py-3"><a href="/dashboard">Dashboard</a></li>        
       </ul>
       {{!-- Display login/logout link depending on wheter or not the user is signed in --}}
       {{#if logged_in}}

@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Post, User, Comment } = require("../models");
 const withAuth = require('../utils/auth');
 
+// Show homepage
 router.get('/', async (req, res) => {
   try {
     const postData = await Post.findAll({
@@ -24,6 +25,13 @@ router.get('/', async (req, res) => {
   }
 })
 
-
+// Show dashboard
+router.get('/dashboard', withAuth, async (req, res) => {
+  try {
+    res.render('homepage');
+  } catch(err) {
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;
