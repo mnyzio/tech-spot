@@ -1,0 +1,26 @@
+[
+    {
+        "comment_body": "Thanks for sharing this helpful information!",
+        "user_id": 2,
+        "date_created": "2022-03-31T14:40:00.000Z",
+        "post_id": 1
+    },
+    {
+        "comment_body": "I've been looking for a good Java tutorial - this is really helpful!",
+        "user_id": 2,
+        "date_created": "2022-04-01T14:15:00.000Z",
+        "post_id": 1
+    },
+    {
+        "comment_body": "Have you tried using React for your projects?",
+        "user_id": 1,
+        "date_created": "2022-04-02T14:55:00.000Z",
+        "post_id": 2
+    },
+    {
+        "comment_body": "Vue.js is my favorite framework for building SPAs!",
+        "user_id": 1,
+        "date_created": "2022-04-02T19:15:00.000Z",
+        "post_id": 2
+    }    
+]

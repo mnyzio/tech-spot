@@ -12,22 +12,22 @@ Post.belongsTo(User, {
   onDelete: "SET NULL",
 });
 
-User.hasMany(Answer, {
+User.hasMany(Comment, {
   foreignKey: "user_id",
   onDelete: "SET NULL",
 });
 
-Answer.belongsTo(User, {
+Comment.belongsTo(User, {
   foreignKey: "user_id",
   onDelete: "SET NULL",
 });
 
-Post.hasMany(Answer, {
+Post.hasMany(Comment, {
   foreignKey: "post_id",
   onDelete: "CASCADE",
 });
 
-Answer.belongsTo(Post, {
+Comment.belongsTo(Post, {
   foreignKey: "post_id",
 });
 

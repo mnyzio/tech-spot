@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Rita",
+        "email": "rita@example.com",
+        "password": "password12345",
+        "user_img": "img/profile1.jpg"
+    },
+    {
+        "name": "John",
+        "email": "john@example.com",
+        "password": "password12345",
+        "user_img": "img/profile2.jpg"
+    }    
+]
