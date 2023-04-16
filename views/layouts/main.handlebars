@@ -4,13 +4,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fund My Project!</title>
+  <title>Tech Spot</title>
   {{!-- Tailwind CSS --}}
   <script src="https://cdn.tailwindcss.com"></script>  
   <link rel="stylesheet" href="css/style.css">
-</head>
-  
-  <body>  
-  {{{ body }}}
-</body>
+</head>  
+<body>  
+  <div id="wrapper" class="max-w-screen-xl mx-auto">
+      {{!-- <h1>logged in:{{logged_in}}</h1> --}}
+    <header>
+      <nav class="flex flex-wrap justify-between py-4">
+      <ul class="flex gap-x-4">
+        <li><a href="/">Home</a></li>      
+        {{!-- Allow signed in user to access dashboard --}}
+        {{#if logged_in}}  
+        <li><a href="dashboard">Dashboard</a></li>
+        {{/if}}
+      </ul>
+      {{!-- Display login/logout link depending on wheter or not the user is signed in --}}
+      {{#if logged_in}}
+        <a href="/logout">Logout</a>
+      {{else}}
+        <a href="/login"
+          class="border border-blue-500 rounded-xl p-3" >Log in</a>
+      {{/if}}
+    </nav>
+    </header>
+    {{{ body }}}
+    <footer>
+      <!-- Copyright section -->
+      <!-- Source -->
+      <!-- https://stackoverflow.com/questions/6002254/get-the-current-year-in-javascript -->
+      <p class="text-center py-4">Copyright © Mirek Nyzio <script>document.write( new Date().getFullYear() );</script></p>
+    </footer>
+  </div>
+</body> 
 </html>

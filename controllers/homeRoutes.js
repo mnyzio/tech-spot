@@ -4,9 +4,15 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
+    const posts = await Post.findAll({ raw: true });
+    console.log("🚀 ~ file: homeRoutes.js:8 ~ router.get ~ posts:", posts)
+
+
+
     res.render('homepage',
-      {
-        logged_in: req.session.logged_id,
+      { 
+        posts,
+        logged_in: req.session.logged_in,
         user_id: req.session.user_id,
         user_name: req.session.user_name
       }
