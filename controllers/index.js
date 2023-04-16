@@ -1,12 +1,12 @@
 const router = require('express').Router();
 const homeRoutes = require('./homeRoutes');
-// const postRoutes = require("./posts");
+const postRoutes = require("./posts/postRoutes");
 const userRoutes = require("./userRoutes");
 
 
 router.use('/', homeRoutes);
-// router.use('/posts', postRoutes);
 router.use('/', userRoutes);
+router.use('/posts', postRoutes);
 
 // Fallback route for when a user attempts to visit routes that don't exist
 router.get('*', (req, res) => {

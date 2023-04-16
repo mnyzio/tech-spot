@@ -1,9 +1,11 @@
 <section>
+    {{> add_post}}
     {{#each posts as |post|}}
-    <article class="border-4 border-emerald-400 first:mb-4 after:my-4">
+    <article class="border-4 border-emerald-400 my-4">
         <div class="article-title flex flex-wrap justify-between bg-emerald-400 p-4 items-center">
             {{!-- Post tile --}}
-            <h2 class="font-bold text-2xl">{{post.post_title}}</h2>
+            <a href="/posts/{{post.post_id}}"
+                class="font-bold text-2xl">{{post.post_title}}</a>
             {{!-- Created by --}}
             <h4>Posted by {{post.user.name}} on {{format_date post.date_created}}</h4>
         </div>
