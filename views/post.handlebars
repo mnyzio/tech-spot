@@ -1,3 +1,6 @@
+{{!-- Go back to homepage --}}
+<a href="/" class="hover:bg-emerald-400 text-lg p-2 border border-emerald-400 transition duration-300 shadow-lg active:shadow-sm">&larr; back</a>
+
 <section>
     {{!-- Post details --}}
     <article class="border-4 border-emerald-400 my-4">
@@ -16,25 +19,35 @@
     <section class="border-4 flex-col border-emerald-400 my-4 items-center">        
         <article class="flex">
             <form class="w-full p-4">
-                <input type="text" id="comment_body" autocomplete="off" placeholder="Add a comment..." class="w-full p-4 text-xl outline-none ">
+                <input type="text" id="comment_body" autocomplete="off" placeholder="Add a comment..." class="w-full p-4 text-xl outline-none">
                 <input type="hidden" name="post-id" id="post-id" value="{{post.post_id}}">
                 <hr>
                 <div class="flex justify-end gap-x-6 px-4 mt-4">
+                    {{!-- Clear input field and reset class on submit button --}}
                     <button id="comment-reset" class="text-xl p-4 shadow-lg border border-emerald-400 hover:bg-emerald-400 active:shadow-sm transition duration-300">Cancel</button>
+                    {{!-- Disable button if input field is empty --}}
                     <button type="submit" id="comment-submit" class="pointer-events-none p-4 text-xl border bg-slate-200 border-emerald-400 hover:bg-emerald-400 transition duration-300">Comment</button>
                 </div>
             </form>        
         </article>
         {{!-- Display comments --}}
         <article>
-            {{#each post.comments as |comment|}}
-            <div class="p-4">
-                {{!-- Comment body --}}
-                <h4 class="font-medium text-lg">{{comment.comment_body}}
-                {{!-- Created by --}}
-                <h4 class="indent-4">&#8212; Posted by {{comment.user.name}} on {{format_date comment.date_created}}</h4>
-            </div>
-        {{/each}}
+            {{!-- If post contains comments --}}
+            {{#if post.comments}}
+                {{#each post.comments as |comment|}}
+                <div class="p-4">
+                    {{!-- Comment body --}}
+                    <h4 class="font-medium text-lg">{{comment.comment_body}}
+                    {{!-- Created by --}}
+                    <h4 class="indent-4">&#8212; Posted by {{comment.user.name}} on {{format_date comment.date_created}}</h4>
+                </div>
+                {{/each}}
+            {{!-- If post has no comments --}}
+            {{else}}
+                <div class="p-4">
+                    <h4 class="font-medium text-lg">No comments to display</h4>
+                </div>
+            {{/if}}
         </article>
     </section>
 </section>
