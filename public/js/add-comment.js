@@ -1,6 +1,16 @@
+const commentReset = document.getElementById('comment-reset');
 const commentSubmitBtn = document.getElementById('comment-submit');
 const commentBody = document.getElementById('comment_body');
 const postID = document.getElementById('post-id').value;
+
+// Reset comment text field
+commentReset.addEventListener('click', (e) => {
+    e.preventDefault();
+    // Clear text 
+    commentBody.value = "";
+    // Disable submit button
+    commentSubmitBtn.setAttribute("class", "pointer-events-none p-4 text-xl border bg-slate-200 border-emerald-400 hover:bg-emerald-400 transition duration-300");
+})
 
 // Enable comment submit button if comment input field is not empty
 commentBody.addEventListener('keyup', () => {    
