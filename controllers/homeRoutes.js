@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
     });
 
     const posts = await postData.map(post => post.get({ plain: true }));
-    console.log("🚀 ~ file: homeRoutes.js:8 ~ router.get ~ posts:", posts)
+    // console.log("🚀 ~ file: homeRoutes.js:8 ~ router.get ~ posts:", posts)
 
     res.render('homepage',
       {
