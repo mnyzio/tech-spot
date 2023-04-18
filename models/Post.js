@@ -19,11 +19,21 @@ Post.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    post_view_count: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0,
+    },
+    post_comment_count: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0,
+    },
     date_created: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
-    },
+    },    
     user_id: {
       type: DataTypes.INTEGER,
       references: {
