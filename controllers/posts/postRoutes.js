@@ -42,19 +42,54 @@ router.get('/:id', withAuth, async (req, res) => {
             res.status(404).json({ message: "Post not found" });
             return;
         };
-
+        
         const post = await postData.get({ plain: true });
         console.log("🚀 ~ file: postRoutes.js:41 ~ router.get ~ post:", post)
         res.render('post', {
             post,
             logged_in: req.session.logged_in,
             session_user_id: req.session.user_id,
-            session_user_name: req.session.user_name
+            session_user_name: req.session.user_name,
         });
         // res.status(200).json(post)
     } catch (err) {
         res.status(500).json(err);
     }
 });
+
+
+// Delete post by id
+// Display details for existing post
+router.delete('/:id', withAuth, async (req, res) => {
+    try {
+        // Look for post with id passed as query param
+        const deletedPost = await Post.destroy({
+            where: {
+                post_id: req.params.id, 
+            },
+        });
+        
+        // If no result found return with message
+        if (!deletedPost) {
+            res.status(404).json({ message: "Post not found" });
+            return;
+        };
+        
+        res.status(200).json(deletedPost)
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
 
 module.exports = router;

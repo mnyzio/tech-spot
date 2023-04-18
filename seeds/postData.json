@@ -12,6 +12,12 @@
         "date_created": "2022-01-02T00:00:00.000Z",
         "user_id": 2,
         "post_comment_count": 2
-    }    
+    },
+    {
+        "post_title": "Introduction to C++ Programming",
+        "post_body": "C++ is a popular programming language used to develop a wide range of applications. This post provides an introduction to C++ programming and its basic syntax.",
+        "date_created": "2022-01-01T00:00:00.000Z",
+        "user_id": 1        
+    }
 ]
 
