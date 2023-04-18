@@ -33,6 +33,10 @@ router.get('/:id', withAuth, async (req, res) => {
             ],
         });
         
+        // Update view count
+        postData.post_view_count += 1;
+        await postData.save();
+
         // If no result found return with message
         if (!postData) {
             res.status(404).json({ message: "Post not found" });

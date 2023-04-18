@@ -10,6 +10,12 @@ router.post('/', withAuth, async (req, res) => {
             user_id: req.session.user_id,
         });
 
+        // Update comment count
+        const toPost = await Post.findByPk(req.body.post_id);
+
+        toPost.post_comment_count += 1;
+        await toPost.save();
+
         res.status(200).json(newComment);
     } catch (err) {
         res.status(500).json(err);
