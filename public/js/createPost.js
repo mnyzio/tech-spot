@@ -11,15 +11,15 @@ postReset.addEventListener('click', (e) => {
     postTitle.value = "";
     postBody.value = "";
     // Disable submit button
-    postSubmitBtn.setAttribute("class", "pointer-events-none p-4 border bg-slate-200 border-emerald-400 hover:bg-emerald-400 transition duration-300");
+    postSubmitBtn.setAttribute("class", "pointer-events-none px-4 py-2 border bg-slate-200 border-emerald-400 hover:bg-emerald-400 transition duration-300");
 })
 
 // Enable comment submit button if comment input field is not empty
 document.addEventListener('keyup', () => {   
     if (postBody.value == "" || postTitle.value == "") {        
-        postSubmitBtn.setAttribute("class", "pointer-events-none p-4 border bg-slate-200 border-emerald-400 hover:bg-emerald-400 transition duration-300")
+        postSubmitBtn.setAttribute("class", "pointer-events-none px-4 py-2 border bg-slate-200 border-emerald-400 hover:bg-emerald-400 transition duration-300")
     } else {
-        postSubmitBtn.setAttribute("class", "p-4 shadow-lg border border-emerald-400 hover:bg-emerald-300 active:shadow-sm transition duration-300");
+        postSubmitBtn.setAttribute("class", "px-4 py-2 shadow-lg border border-emerald-400 hover:bg-emerald-300 active:shadow-sm transition duration-300");
     }
 });
 

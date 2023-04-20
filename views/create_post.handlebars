@@ -1,9 +1,18 @@
-<section class="border-4 border-emerald-400 p-4">
-    <h1 class="text-2xl font-bold">Create Post</h1>
-    <form class="mt-4" id="newPostForm">
-        <label for="post_title" class="font-bold text-1xl pb-2">Enter a title for your question:</label>
-        <p>Create a concise, one-line title that summarizes your problem.</p>
-        <input type="text" id="post_title" name="post_title" placeholder="Post title..." autocomplete="none"
+<section>
+    <h1 class="p-4 text-3xl font-bold text-emerald-400">Create Post</h1>
+    <p class="p-4 mb-4 font-medium bg-slate-100 border border-emerald-400 ">We welcome contributions from our readers! 
+        If you have a passion for technology and want 
+        to share your thoughts and experiences with our 
+        community, we invite you to submit your own posts 
+        to Tech-Spot. We believe that everyone has something 
+        valuable to add to the conversation, and we look forward 
+        to hearing from you. So don't hesitate to share your 
+        knowledge and insights with us - together, we can create a 
+        vibrant and engaging community focused on all things tech!</p>
+</section>
+<section class="border-4 border-emerald-400">
+    <form id="newPostForm" class="p-4">                
+        <input type="text" id="post_title" name="post_title" placeholder="Post title..." autocomplete="off"
             class="w-full p-4 outline-none font-bold text-xl" />
         <hr>
         <textarea type="text" name="post_body" id="post_body" rows="10" placeholder="Post content..."
