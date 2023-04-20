@@ -9,15 +9,15 @@ commentReset.addEventListener('click', (e) => {
     // Clear text 
     commentBody.value = "";
     // Disable submit button
-    commentSubmitBtn.setAttribute("class", "pointer-events-none p-4 text-xl border bg-slate-200 border-emerald-400 hover:bg-emerald-400 transition duration-300");
+    commentSubmitBtn.setAttribute("class", "pointer-events-none p-4 border bg-slate-200 border-emerald-400 hover:bg-emerald-400 transition duration-300");
 })
 
 // Enable comment submit button if comment input field is not empty
 commentBody.addEventListener('keyup', () => {    
     if (commentBody.value == "") {        
-        commentSubmitBtn.setAttribute("class", "pointer-events-none p-4 text-xl border bg-slate-200 border-emerald-400 hover:bg-emerald-400 transition duration-300")
+        commentSubmitBtn.setAttribute("class", "pointer-events-none p-4 border bg-slate-200 border-emerald-400 hover:bg-emerald-400 transition duration-300")
     } else {
-        commentSubmitBtn.setAttribute("class", "text-xl p-4 shadow-lg border border-emerald-400 hover:bg-emerald-300 active:shadow-sm transition duration-300");
+        commentSubmitBtn.setAttribute("class", "p-4 shadow-lg border border-emerald-400 hover:bg-emerald-300 active:shadow-sm transition duration-300");
     }
 });
 
