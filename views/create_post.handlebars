@@ -1,1 +1,23 @@
-<h1>CREATE POST</h1>
+<section class="border-4 border-emerald-400 p-4">
+    <h1 class="text-2xl font-bold">Create Post</h1>
+    <form class="mt-4" id="newPostForm">
+        <label for="post_title" class="font-bold text-1xl pb-2">Enter a title for your question:</label>
+        <p>Create a concise, one-line title that summarizes your problem.</p>
+        <input type="text" id="post_title" name="post_title" placeholder="Post title..." autocomplete="none"
+            class="w-full p-4 outline-none font-bold text-xl" />
+        <hr>
+        <textarea type="text" name="post_body" id="post_body" rows="10" placeholder="Post content..."
+            class="w-full p-4 outline-none"></textarea>
+        <hr>
+        <div class="flex justify-end gap-x-6 mt-4">
+            {{!-- Clear input field and reset class on submit button --}}
+            <button id="post-reset"
+                class="px-4 py-2 shadow-lg border border-emerald-400 hover:bg-emerald-400 active:shadow-sm transition duration-300">Cancel</button>
+            {{!-- Disable button if input field is empty --}}
+            <button type="submit" id="post-submit"
+                class="pointer-events-none px-4 py-2 border bg-slate-200 border-emerald-400 hover:bg-emerald-400 transition duration-300">Create</button>
+        </div>
+    </form>
+</section>
+
+<script src="/js/createPost.js"></script>

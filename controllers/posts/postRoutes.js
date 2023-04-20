@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Post, User, Comment } = require("../../models");
 const withAuth = require('../../utils/auth');
 
-// Create new post
+// Display new post form
 router.get('/create', withAuth, async (req, res) => {
     try {
         res.render('create_post', {
@@ -13,7 +13,30 @@ router.get('/create', withAuth, async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     };
-})
+});
+
+// Create new post
+router.post('/create', withAuth, async (req, res) => {
+    try {
+        const newPost = await Post.create({
+            ...req.body,
+            user_id: req.session.user_id,
+        });
+
+        if (!newPost) {
+            res.status(400).json({message: "Post not added"});
+            return;
+        };
+
+        res.render('dashboard', {
+            logged_in: req.session.logged_in,
+            session_user_id: req.session.user_id,
+            session_user_name: req.session.user_name
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    };
+});
 
 // Display details for existing post
 router.get('/:id', withAuth, async (req, res) => {
