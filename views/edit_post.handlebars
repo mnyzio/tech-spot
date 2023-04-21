@@ -1,0 +1,28 @@
+<section>
+    <h1 class="p-4 text-3xl font-bold text-emerald-400">Edit Post</h1>
+    <p class="p-4 mb-4 font-medium bg-slate-100 border border-emerald-400 ">
+        This user-friendly interface allows you to update the 
+        content of your post to ensure that your post is as 
+        accurate and up-to-date as possible.</p>
+</section>
+<section class="border-4 border-emerald-400">
+    <form id="editPostForm" class="p-4">                
+        <input type="text" id="post_title" name="post_title" placeholder="Post title..." autocomplete="off"
+            class="w-full p-4 outline-none font-bold text-xl" value="{{post_title}}"/>
+        <hr>
+        <textarea type="text" name="post_body" id="post_body" rows="10" placeholder="Post content..."
+            class="w-full p-4 outline-none">{{post_body}}</textarea>
+        <hr>
+        <div class="flex justify-end gap-x-6 mt-4">
+            {{!-- Clear input field and reset class on submit button --}}
+            <button id="post-cancel"
+                class="px-4 py-2 shadow-lg border border-emerald-400 hover:bg-emerald-400 active:shadow-sm transition duration-300">Cancel</button>
+            {{!-- Disable button if input field is empty --}}
+            <button type="submit" id="post-save"
+                class="px-4 py-2 shadow-lg border border-emerald-400 hover:bg-emerald-300 active:shadow-sm transition duration-300">Save</button>
+            <input type="hidden" name="post-id" id="post-id" value="{{post_id}}">
+        </div>
+    </form>
+</section>
+
+<script src="/js/edit-Post.js"></script>

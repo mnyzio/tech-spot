@@ -5,7 +5,9 @@ editBtn.forEach((btn) => {
     btn.addEventListener('click', async (e) => {
         try {
             const postID = btn.dataset.postid;            
-            alert(`Clicked ${postID} buton`);
+                        
+            document.location.replace(`/posts/edit/${postID}`)
+            
         } catch (err) {
             console.log(err);
         }
@@ -17,7 +19,6 @@ deleteBtn.forEach((btn) => {
     btn.addEventListener('click', async (e) => {
         try {
             const postID = btn.dataset.postid;
-            console.log("🚀 ~ file: post_actions.js:19 ~ btn.addEventListener ~ postID:", postID)
             
             const response = await fetch(`/posts/${postID}`, {
                 method: "DELETE",
@@ -34,6 +35,3 @@ deleteBtn.forEach((btn) => {
     });
 });
 
-document.addEventListener('click', (e) => {
-    console.log(e.target);
-})

@@ -10,7 +10,6 @@ router.get('/', async (req, res) => {
     });
 
     const posts = await postData.map(post => post.get({ plain: true }));
-    // console.log("🚀 ~ file: homeRoutes.js:8 ~ router.get ~ posts:", posts)
 
     res.render('homepage',
       {
@@ -26,7 +25,6 @@ router.get('/', async (req, res) => {
 })
 
 // Show dashboard
-//todo add dashboard functionality
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
 

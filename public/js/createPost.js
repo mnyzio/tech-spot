@@ -15,7 +15,7 @@ postReset.addEventListener('click', (e) => {
 })
 
 // Enable comment submit button if comment input field is not empty
-document.addEventListener('keyup', () => {   
+newPostForm.addEventListener('keyup', () => {   
     if (postBody.value == "" || postTitle.value == "") {        
         postSubmitBtn.setAttribute("class", "pointer-events-none px-4 py-2 border bg-slate-200 border-emerald-400 hover:bg-emerald-400 transition duration-300")
     } else {
