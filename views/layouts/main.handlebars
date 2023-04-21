@@ -13,19 +13,26 @@
   <div id="wrapper" class="max-w-screen-xl mx-auto px-4">
     <h1>Logged in {{logged_in}}, as {{session_user_name}}</h1>
     <header>
-      <nav class="flex flex-wrap items-center justify-between py-4">
-      <ul class="flex gap-x-4">
-        <li class="py-3 text-xl font-bold hover:text-emerald-400 transition duration-300"><a href="/">Home</a></li>              
-        <li class="py-3 text-xl font-bold hover:text-emerald-400 transition duration-300"><a href="/dashboard">Dashboard</a></li>        
-      </ul>
+      {{!-- Hamburger menu --}}
+      <button class="hamburger block sm:hidden pt-4" 
+            id="hamburger-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>  
+      </button>
+      <nav id="nav-list" class="hidden sm:flex sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:py-4">
+      <ul class="sm:flex sm:flex-row sm:gap-x-4">
+        <li class="p-1 sm:p-3 text-xl font-bold hover:text-emerald-400 transition duration-300"><a href="/">Home</a></li>              
+        <li class="p-1 sm:p-3 text-xl font-bold hover:text-emerald-400 transition duration-300"><a href="/dashboard">Dashboard</a></li>        
+      </ul>      
       {{!-- Display login/logout link depending on wheter or not the user is signed in --}}
       {{#if logged_in}}
-        <button id="logout" class="py-3 text-xl font-bold hover:text-emerald-400 transition duration-300">Logout</button>        
+        <button id="logout" class="p-1 sm:p-3 text-xl font-bold hover:text-emerald-400 transition duration-300">Logout</button>        
       {{else}}
         <a href="/login"
-          class="py-3 text-xl font-bold hover:text-emerald-400 transition duration-300" >Log in / Register</a>
+          class="p-1 block sm:p-3 text-xl font-bold hover:text-emerald-400 transition duration-300" >Log in / Register</a>
       {{/if}}
-    </nav>
+      </nav>    
     </header>
     {{{ body }}}
     <footer>
@@ -36,7 +43,10 @@
     </footer>
   </div>
 
-  {{!-- Allow additional functionality for logged in users --}}
+  {{!-- Hamburger menu --}}
+  <script src="/js/menu.js"></script>
+
+  {{!-- Allow additional functionality for logged in users --}}  
   {{#if logged_in}}
     <script src="/js/logout.js"></script>
   {{/if
