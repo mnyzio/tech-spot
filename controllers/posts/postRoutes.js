@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const { Post, User, Comment } = require("../../models");
+const { Post, User, Comment, Views } = require("../../models");
+const { findAll } = require('../../models/Views');
 const withAuth = require('../../utils/auth');
 
 // Display new post form
@@ -52,29 +53,44 @@ router.get('/:id', withAuth, async (req, res) => {
                     model: Comment,
                     include: [ { model: User } ],
                     attributes: { exclude: ["password"] },
-                },                
+                },                       
             ],
         });
-        
-        // Update view count
-        postData.post_view_count += 1;
-        await postData.save();
 
         // If no result found return with message
         if (!postData) {
             res.status(404).json({ message: "Post not found" });
             return;
         };
+
+        // Check to see if logged in user already viewed this post
+        const viewedData = await Views.findAll({
+            where: {
+                post_id: req.params.id,
+                user_id: req.session.user_id,
+            }
+        })
+        
+        // If this is the first time user views this post update view count for post and update viewed table
+        if (!viewedData.length) {
+            // Update viewed table
+            await Views.create({
+                post_id: req.params.id,
+                user_id: req.session.user_id,
+            });
+
+            // Update view count
+            postData.post_view_count += 1;
+            await postData.save();
+        }        
         
         const post = await postData.get({ plain: true });
-        console.log("🚀 ~ file: postRoutes.js:41 ~ router.get ~ post:", post)
         res.render('post', {
             post,
             logged_in: req.session.logged_in,
             session_user_id: req.session.user_id,
             session_user_name: req.session.user_name,
         });
-        // res.status(200).json(post)
     } catch (err) {
         res.status(500).json(err);
     }
