@@ -1,19 +1,9 @@
-{{> search}}
+{{> back_link}}
 <section>
-    <h2 class="font-bold text-4xl mb-2 p-4">Welcome to <span class="text-emerald-400">Tech-Spot</span></h2>
-    <article class="border border-emerald-400 bg-slate-100 p-4 my-4">
-        <p class= "font-medium"> 
-        Our blog is dedicated to providing you with the latest news, insights, 
-        and analysis on everything related to tech. Whether you're a seasoned 
-        tech enthusiast or just starting out, we've got you covered with our wide 
-        range of articles, reviews, and how-to guides. From the latest gadgets 
-        and software to the newest trends in the tech industry, Tech-Spot has it all. 
-        Join us on this exciting journey as we explore the ever-evolving world 
-        of technology together!
-        </p>
-    </article>    
+    <h2 class="p-4 text-3xl font-bold text-emerald-400">Search results for: <span class="text-slate-800">{{searchPhrase}}</span></h2>
+    
     {{!-- {{> add_post}} --}}
-    {{#each posts as |post|}}
+    {{#each searched as |post|}}
     <article class="border-4 border-emerald-400 my-4">
         {{!-- Post header container --}}
         <div class="article-title flex flex-wrap justify-between bg-emerald-400 p-4 items-center">

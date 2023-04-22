@@ -24,7 +24,7 @@
       <ul class="sm:flex sm:flex-row sm:gap-x-4">
         <li class="p-1 sm:p-3 text-xl font-bold hover:text-emerald-400 transition duration-300"><a href="/">Home</a></li>              
         <li class="p-1 sm:p-3 text-xl font-bold hover:text-emerald-400 transition duration-300"><a href="/dashboard">Dashboard</a></li>        
-        <li class="p-1 sm:p-3 text-xl font-bold hover:text-emerald-400 transition duration-300"><a href="/support">Support</a></li>        
+        <li class="p-1 sm:p-3 text-xl font-bold hover:text-emerald-400 transition duration-300"><a href="/support">Support</a></li>                
       </ul>      
       {{!-- Display login/logout link depending on wheter or not the user is signed in --}}
       {{#if logged_in}}
@@ -33,7 +33,7 @@
         <a href="/login"
           class="p-1 block sm:p-3 text-xl font-bold hover:text-emerald-400 transition duration-300" >Log in / Register</a>
       {{/if}}
-      </nav>    
+      </nav>          
     </header>
     {{{ body }}}
     <footer>
