@@ -1,8 +1,17 @@
 const postReset = document.getElementById('post-reset');
+const postCancel = document.getElementById('post-cancel');
 const postSubmitBtn = document.getElementById('post-submit');
 const postTitle = document.getElementById('post_title'); 
 const postBody = document.getElementById('post_body');
 const newPostForm = document.getElementById('newPostForm');
+
+// Cancel new post
+postCancel.addEventListener('click', (e) => {
+    e.preventDefault();    
+    // Redirect to dashboard
+    document.location.replace('/dashboard');
+});
+
 
 // Reset comment text field
 postReset.addEventListener('click', (e) => {
