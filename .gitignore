@@ -1,6 +1,7 @@
 /private
 /src 
 tailwind.config.js
+/tailwind
 
 # Logs
 logs
