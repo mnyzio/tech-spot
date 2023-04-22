@@ -49,4 +49,20 @@ router.get('/dashboard', withAuth, async (req, res) => {
   }
 });
 
+// Show support page
+router.get('/support', async (req, res) => {
+  try {   
+
+    res.render('support',
+      {        
+        logged_in: req.session.logged_in,
+        session_user_id: req.session.user_id,
+        session_user_name: req.session.user_name
+      }
+    );
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
