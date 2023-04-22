@@ -1,6 +1,9 @@
 const router = require('express').Router();
+const { query } = require('express');
 const { Post, User, Comment } = require("../models");
 const withAuth = require('../utils/auth');
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 
 // Show homepage
 router.get('/', async (req, res) => {
@@ -55,6 +58,36 @@ router.get('/support', async (req, res) => {
 
     res.render('support',
       {        
+        logged_in: req.session.logged_in,
+        session_user_id: req.session.user_id,
+        session_user_name: req.session.user_name
+      }
+    );
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// Search route
+router.get('/search/:query', async (req, res) => {
+  try {   
+    const searchPhrase = req.params.query;
+
+    const searchedData = await Post.findAll({
+      where: {
+        post_title: {
+          [Op.like]: `%${req.params.query}%`
+        }
+      },
+      include: [{ model: Comment }, { model: User, attributes: { exclude: ["password"] } }],
+    })
+    const searched = await searchedData.map((e) => e.get({ plain: true }));
+    console.log("🚀 ~ file: homeRoutes.js:83 ~ router.get ~ searched:", searched)
+    
+    res.render('searched_posts',
+      {        
+        searched,
+        searchPhrase,
         logged_in: req.session.logged_in,
         session_user_id: req.session.user_id,
         session_user_name: req.session.user_name
